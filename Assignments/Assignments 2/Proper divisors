@@ -1,0 +1,30 @@
+let mutable a=0
+let mutable b=0
+let mutable c=0
+let mutable d=0
+let mutable e=0
+let mutable f=0
+for k=1 to 10 do
+    b <- 0
+    f <- k/2  
+    printf "divisor "
+    for l=1 to f do
+        if k%l=0 then
+           b <- b+1
+           printf " %i," l
+    printf "no of divisor %i" b
+    printfn ""
+for i=1 to 20000 do
+    b <- 0
+    f <- i/2
+    for j=1 to f do
+       if i%j=0 then
+         b <- b+1
+    if b=c then
+         d <- 0
+         d <- i
+    if c<b then     
+        c <- b
+ 
+printfn "%i has %i divisor" d c
+Contact GitHub 
