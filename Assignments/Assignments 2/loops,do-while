@@ -1,0 +1,7 @@
+let mutable n=0
+let mutable d=1
+while (d<>0) do
+    n<-n+1
+    d<-n%6
+    if(d<>0) then
+        printfn "%i" n
