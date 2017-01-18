@@ -1,0 +1,43 @@
+let mutable a=6
+let mutable b=0
+let mutable c=120
+let mutable d=2048
+let mutable e=402642
+let mutable f=1206432
+printf "6 :"
+for j=1 to a do
+     if a%j=0 then
+         b <- b+1
+         printf " %i "j
+printfn ""
+printf "120 :"
+for j=1 to c do
+     if c%j=0 then
+         b <- b+1
+         printf " %i "j
+printfn ""
+printf "2048 :"
+for j=1 to d do
+     if d%j=0 then
+         b <- b+1
+         printf " %i "j
+printfn ""
+printf "402642 :"
+for j=1 to e do
+     if e%j=0 then
+         b <- b+1
+         printf " %i "j
+printfn ""
+printf "120643200 :"
+for j=1 to f do
+     if f%j=0 then
+         b <- b+1
+         printf " %i "j
+OUTPUT :
+6 : 1  2  3  6                                                                                                                                                                  
+120 : 1  2  3  4  5  6  8  10  12  15  20  24  30  40  60  120                                                                                                                  
+2048 : 1  2  4  8  16  32  64  128  256  512  1024  2048                                                                                                                        
+402642 : 1  2  3  6  9  18  22369  44738  67107  134214  201321  402642                                                                                                         
+120643200 : 1  2  3  4  6  8  9  12  16  18  24  32  36  48  59  71  72  96  118  142  144  177  213  236  284  288  354  426  472  531  568  639  708  852  944  1062  1136  12
+78  1416  1704  1888  2124  2272  2556  2832  3408  4189  4248  5112  5664  6816  8378  8496  10224  12567  16756  16992  20448  25134  33512  37701  50268  67024  75402  10053
+6  134048  150804  201072  301608  402144  603216  1206432
