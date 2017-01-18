@@ -1,0 +1,12 @@
+let mutable a=21
+let mutable b=22
+let mutable c=23
+while(a<>10) do
+    b <- (new System.Random()).Next(0, 20)
+    if(a<>b) then
+        printf "%i " b
+    c <- (new System.Random(b)).Next(0, 20)
+    if(b<>10) then
+        if(a<>b) then
+            printfn "%i " c
+    a<-b
