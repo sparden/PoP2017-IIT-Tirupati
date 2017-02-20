@@ -1,1 +1,48 @@
+type Node = 
+    | Empty
+    | Value of int * ImmutableStack
 
+and ImmutableStack(?v:int, ?n:ImmutableStack) = 
+    let data = match (v,n) with
+                | (Some v, Some n ) -> Value (v,n)
+                | (Some v, None) -> Value (v,ImmutableStack.Empty())
+                | (None, None) -> Empty
+                | _ -> failwith "invalid combination"
+    static member Empty() = ImmutableStack()
+    member x.IsEmpty() = 
+        match data with
+            | Empty -> true
+            | _ -> false
+    member x.Push(y) =
+        match data with 
+            | Empty -> ImmutableStack(y, x)
+            | Value _ -> ImmutableStack(y, x)
+    member x.Peek() =
+        match data with
+            | Empty -> failwith "ImmutableStack is empty"
+            | Value (v,_) -> v
+    member x.Pop() =
+        match data with 
+            | Empty -> failwith "ImmutableStack is empty"
+            | Value (_,n) -> n
+    member x.All() =
+        match data with 
+            | Empty -> Seq.empty
+            | Value (v,n) -> Seq.append (Seq.singleton v) (n.All())
+            
+let rec printStack (s:ImmutableStack) =
+    match s.IsEmpty() with
+        | true -> printfn "Empty"
+        | false -> 
+            printfn "%d" (s.Peek())
+            printStack (s.Pop())
+
+let s1 = ImmutableStack.Empty()
+let s2 = s1.Push(42).Push(56).Push(62)
+let s3 = ImmutableStack 42
+let s4 = s3.Pop()
+
+printStack s1
+printStack s2
+printStack s3
+printStack s4
