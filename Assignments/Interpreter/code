@@ -1,0 +1,55 @@
+open System
+let ch:int =(int)'0'
+let mutable d:char='a'
+let mutable vali =Array.create 3 0
+printfn "%d"ch
+type conversion (expcc:string)=
+     member this.token(ar,c)=
+            if(c='+')then
+                 conversion.add(ar)
+            elif(c='-')then
+                conversion.sub(ar)
+            elif(c='*')then
+                conversion.mul(ar)
+            elif(c='/')then
+                conversion.div(ar)
+
+     static member add(ar)=
+           for i=0 to 1 do
+              let sum = ar[0]+ar[1]
+              do printfn"%d"sum
+
+     static member sub(ar)=
+           for i=0 to 1 do
+              let sub = ar[0]-ar[1]
+              do printfn"%d"sub
+
+     static member mul(ar)=
+           for i=0 to 1 do
+              let mul = ar[0]*ar[1]
+              do printfn"%d"mul
+
+     static member div(ar)=
+           for i=0 to 1 do
+              let div = ar[0]/ar[1]
+              do printfn"%d"div
+
+     static member lex(expc:string)=
+             for i=0 to String.length expc do
+                if(expc.[i]<>'+')then
+                   vali.[i]=(int)expc.[i]-48
+                elif(expc.[i]<>'-')then
+                     vali.[i]=(int)expc.[i]-48
+                elif(expc.[i]<>'*')then
+                     vali.[i]=(int)expc.[i]-48
+                elif(expc.[i]<>'/')then
+                     vali.[i]=(int)expc.[i]-48
+                elif(expc.[i]=('+'))then
+                     d <-expc.[i]
+                do conversion.token(vali,d)
+let main() =
+    let exp=Console.ReadLine()
+    conversion(exp)           
+
+main()
+ 
